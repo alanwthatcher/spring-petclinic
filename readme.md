@@ -1,4 +1,34 @@
-Testing 2 - Alan
+# Tech Exercise
+This repo is a clone of the original spring-petclinic project included in the instructions. I have added two docker files: one for running directly with MVN, and the other to run off of a packaged jar file. The images are stored in Artifactory, and are publically avaialable.
+
+The GitHub Actions are contained in the repo and perform these actions:
+- On pull for the master branch, the built in tests are run on the project
+- On push for the master branch, the tests are run and the two docker images are built and then subsequently pushed to Artifactory
+
+In order to retrieve the images:
+```bash
+# pull the jar based image
+alan1.jfrog.io/spring-petclinic-docker/petclinic-app-jar:8
+
+# pull the mvn based image
+alan1.jfrog.io/spring-petclinic-docker/petclinic-app-nvm:4
+
+# find image ID
+docker images
+```
+When running either container, expose port 8080:
+```bash
+docker run -p 8080:[desired_port] [image_id]
+```
+
+## Exercise Notes
+This is certainly not similar to production ready CI/CD
+- The actions on pull for master should be chained and dependent on each other
+- The jar based container is probably bloated, and files could be cleaned up
+- The Artifactory setup should not be public :)
+
+-------------------------------------------------
+
 
 # Spring PetClinic Sample Application [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
 
