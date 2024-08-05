@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
-RUN ./mvnw build
+RUN ./mvnw package
 COPY target/*.jar ./
 
 CMD ["java", "-jar", "*.jar"]
