@@ -1,4 +1,4 @@
-name: Build and Tag Docker Image
+name: Build and Tag Docker Image - Jar
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         env:
           IMAGE_NAME: alan1.jfrog.io/spring-petclinic-docker/petclinic-app-jar:${{ github.run_number }}
         run: |
-          jf docker build -t $IMAGE_NAME .
+          jf docker build -f Dockerfile.java -t $IMAGE_NAME .
           jf docker push $IMAGE_NAME
           
       - name: Publish Build info With JFrog CLI
