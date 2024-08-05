@@ -8,6 +8,4 @@ COPY src ./src
 	
 RUN ./mvnw package
 	
-COPY target/*.jar ./
-
-CMD ["java", "-jar", "*.jar"]
+CMD ["java", "-jar", "./target/*.jar"]
