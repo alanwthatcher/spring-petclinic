@@ -8,10 +8,10 @@ The GitHub Actions are contained in the repo and perform these actions:
 In order to retrieve the images:
 ```bash
 # pull the jar based image
-alan1.jfrog.io/spring-petclinic-docker/petclinic-app-jar:8
+docker pull alan1.jfrog.io/spring-petclinic-docker/petclinic-app-jar:8
 
 # pull the mvn based image
-alan1.jfrog.io/spring-petclinic-docker/petclinic-app-nvm:4
+docker pull alan1.jfrog.io/spring-petclinic-docker/petclinic-app-nvm:4
 
 # find image ID
 docker images
